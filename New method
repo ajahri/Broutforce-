@@ -1,0 +1,44 @@
+import java.util.Scanner;
+
+public class Main {
+    static void bruteForce(int[] arr, int n, int target) {
+        for (int i = 0; i < n; i++) {
+            int curSum = 0;
+            for (int j = i; j < n; j++) {
+                curSum += arr[j];
+                if (curSum == target) {
+                    for (int k = i; k <= j; k++) {
+                        System.out.print(arr[k] + " ");
+                    }
+                    System.out.println();
+                }
+            }
+        }
+    }
+    
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        
+        // Taking array size input from user
+        System.out.print("Enter the size of the array: ");
+        int N = sc.nextInt();
+        
+        // Declaring the array
+        int[] arr = new int[N];
+        
+        // Taking array elements input from user
+        System.out.println("Enter the elements of the array: ");
+        for (int i = 0; i < N; i++) {
+            arr[i] = sc.nextInt();
+        }
+        
+        // Taking target input from user
+        System.out.print("Enter the target sum: ");
+        int target = sc.nextInt();
+        
+        // Calling bruteForce function
+        bruteForce(arr, N, target);
+        
+        sc.close();
+    }
+}
